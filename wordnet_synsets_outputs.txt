@@ -1,0 +1,54 @@
+Inputted word: fat
+Synset: fat.n.01
+Definition: a soft greasy substance occurring in organic tissue and consisting of a mixture of lipids (mostly triglycerides)
+Example: pizza has too much fat
+Synonyms (lemmas): fat
+
+Inputted word: fat
+Synset: adipose_tissue.n.01
+Definition: a kind of body tissue containing stored fat that serves as a source of energy; it also cushions and insulates vital organs
+Example: fatty tissue protected them from the severe cold
+Synonyms (lemmas): adipose_tissue, fat, fatty_tissue
+
+Inputted word: fat
+Synset: fatness.n.01
+Definition: excess bodily weight
+Example: she disliked fatness in herself as well as in others
+Synonyms (lemmas): fatness, fat, blubber, avoirdupois
+
+Inputted word: fat
+Synset: fatten.v.01
+Definition: make fat or plump
+Example: We will plump out that poor starving child
+Synonyms (lemmas): fatten, fat, flesh_out, fill_out, plump, plump_out, fatten_out, fatten_up
+
+Inputted word: fat
+Synset: fat.a.01
+Definition: having an (over)abundance of flesh
+Example: he hadn't remembered how fat she was
+Synonyms (lemmas): fat
+
+Inputted word: fat
+Synset: fat.s.01
+Definition: having a relatively large diameter
+Example: a fat rope
+Synonyms (lemmas): fat
+
+Inputted word: fat
+Synset: fatty.a.01
+Definition: containing or composed of fat
+Example: fatty food
+Synonyms (lemmas): fatty, fat
+
+Inputted word: fat
+Synset: fat.s.02
+Definition: lucrative
+Example: a juicy contract
+Synonyms (lemmas): fat, juicy
+
+Inputted word: fat
+Synset: fat.s.03
+Definition: marked by great fruitfulness
+Example: fertile farmland
+Synonyms (lemmas): fat, fertile, productive, rich
+
