@@ -2,8 +2,8 @@ from aggregate_utils import compare_connotation
 from io_utils import get_pairs, results_to_csv
 
 def main():
-    input_file = "1st_20_pairs.txt"
-    output_file = "1st_20_weighted_results.csv"
+    input_file = "pairs.txt"
+    output_file = "weighted_results_60pairs.csv"
 
     pairs = get_pairs(input_file)
     print("Pairs loaded:", pairs) #debug test

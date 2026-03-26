@@ -24,7 +24,7 @@ seen_words = set()
 
 #main eval
 with open("pairs.csv") as f,\
-    open("eval_results_60pairs.csv", "w", newline="") as output:
+    open("eval_weighted_results_60pairs.csv", "w", newline="") as output:
     
     reader = csv.DictReader(f)
     writer = csv.writer(output)
