@@ -1,5 +1,6 @@
 from nltk.corpus import wordnet as wn
 from nltk.corpus import sentiwordnet as swn
+from nltk.corpus.reader.wordnet import WordNetError
 
 #word-level wrapper 
 def word_aggregate_polarity(word, pos):
@@ -26,9 +27,9 @@ def synset_aggregate_polarity(synset_list, weighted=False):
     for i, synset in enumerate(synset_list):
         try:
             senti =  swn.senti_synset(synset.name())
-        except:
+        except WordNetError:
             continue
-
+        #debug print
         print("Word synsets: ", len(synset_list), "Used: ", count)
 
         #calculate polarity
