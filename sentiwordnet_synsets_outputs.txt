@@ -1,7 +1,0 @@
-Synset: arrogant.s.01
-Definition: having or showing feelings of unwarranted importance out of overbearing pride
-Postive Score: 0.5
-Negative Score: 0.375
-Objective Score: 0.125
-Example: an arrogant official
-
