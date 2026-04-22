@@ -1,0 +1,8 @@
+# outputs / results
+*.csv
+*.txt
+*.log
+
+# python cache
+__pycache__/
+*.pyc
