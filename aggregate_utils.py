@@ -2,6 +2,7 @@ from nltk.corpus import wordnet as wn
 from nltk.corpus import sentiwordnet as swn
 from nltk.corpus.reader.wordnet import WordNetError
 
+
 #word-level wrapper 
 def word_aggregate_polarity(word, pos):
     synsets = wn.synsets(word, pos=pos)
@@ -24,16 +25,24 @@ def synset_aggregate_polarity(synset_list, weighted=False):
     total_weighted = 0
     total_weight = 0
 
+    #diagnostics
+    used = 0
+    neutral = 0
+
     for i, synset in enumerate(synset_list):
         try:
             senti =  swn.senti_synset(synset.name())
         except WordNetError:
             continue
-        #debug print
-        print("Word synsets: ", len(synset_list), "Used: ", count)
-
+        
         #calculate polarity
         polarity = senti.pos_score() - senti.neg_score()
+
+        #track polarity contribution quality
+        if polarity == 0:
+            neutral +=1
+        else:
+            used +=1
 
         if weighted:
             weight = 1/(i + 1) #rank based weight
@@ -45,12 +54,12 @@ def synset_aggregate_polarity(synset_list, weighted=False):
 
     if weighted:
         if total_weight == 0:
-            return None
+            return None, used, neutral
         return total_weighted/total_weight #aggregate weighted polarity
     else:
         if count == 0:
-            return None
-        return total_polarity/count #aggregate uniform polarity
+            return None, used, neutral
+        return total_polarity/count, used, neutral #aggregate uniform polarity
     # #dbug print
     # print("Processed synsets:", count, "out of", len(synset_list))
 
@@ -81,8 +90,8 @@ def compare_connotation(word1, word2, part_of_speech):
     unique1_polarity = synset_aggregate_polarity(unique1, weighted=False)
     unique2_polarity = synset_aggregate_polarity(unique2, weighted=False)
 
-    total1_polarity = synset_aggregate_polarity(synset1_list, weighted=True)
-    total2_polarity = synset_aggregate_polarity(synset2_list, weighted=True)
+    total1_polarity, used1, neutral1 = synset_aggregate_polarity(synset1_list, weighted=False)
+    total2_polarity, used2, neutral2 = synset_aggregate_polarity(synset2_list, weighted=False)
 
     #debug prints to check which words have synsets
     # print("DEBUG:", word1, word2, part_of_speech)
@@ -113,5 +122,9 @@ def compare_connotation(word1, word2, part_of_speech):
         "word2_unique_polarity: ":unique2_polarity,
         "num_shared: ":len(shared),
         "num_unqiue1: ":len(unique1),
-        "num_unique2: ":len(unique2)
+        "num_unique2: ":len(unique2),
+        "word1_used_synsets": used1,
+        "word1_neutral_synsets": neutral1,
+        "word2_used_synsets": used2,
+        "word2_neutral_synsets": neutral2,
     }
